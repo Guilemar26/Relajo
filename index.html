@@ -3,69 +3,37 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Momento Vivo</title>
+<title>Video QR</title>
 
 <style>
-html, body {
+body {
   margin: 0;
-  padding: 0;
   background: #000;
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-
-video {
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
-}
-
-.tap {
-  position: fixed;
-  inset: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: rgba(0,0,0,.45);
-  color: rgba(255,255,255,.75);
-  font-size: 18px;
-  cursor: pointer;
-  text-align: center;
-  padding: 20px;
+  height: 100vh;
 }
 
-.brand {
-  position: fixed;
-  bottom: 12px;
+video {
   width: 100%;
-  text-align: center;
-  color: rgba(255,255,255,.6);
-  font-size: 12px;
+  max-width: 600px;
+  height: auto;
+  background: #000;
 }
 </style>
 </head>
 
 <body>
 
-<video id="video" muted playsinline>
-  <source src="https://drive.google.com/uc?export=download&id=1kK91NJJBT3ooqGFGVOBJqffWRhP1EkJZ" type="video/mp4">
-  Tu navegador no soporta reproducir video.
+<video 
+  src="video.mp4"
+  controls
+  playsinline
+  muted
+  preload="auto">
+  Tu navegador no soporta video HTML5.
 </video>
-
-<div class="tap" id="tap">Toca para reproducir</div>
-<div class="brand">LECAM · Fotografía & Video</div>
-
-<script>
-const video = document.getElementById("video");
-const tap = document.getElementById("tap");
-
-// Al tocar, reproduce y oculta el mensaje
-tap.addEventListener("click", () => {
-  video.play().catch(() => {});
-  tap.style.display = "none";
-});
-</script>
 
 </body>
 </html>
